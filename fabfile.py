@@ -95,6 +95,7 @@ class RoleFetcher(object):
         self.hosts = _fetch_hosts()
 
         for host in self.hosts:
+            host = host.split('.')[0]
             cls = host.rstrip('-1234567890').replace('-', '_')
             self.roledefs['all'].append(host)
             self.roledefs['class-%s' % cls].append(host)
